@@ -57,12 +57,23 @@ console.log(game1.getScore());
 var merseysideGame = new Derby('Everton', 'Liverpool', 7, 0, false, true);
 console.log(merseysideGame.getHomeTeam());
 
-var games = {};
+var footballMatches = {};
 
-games = (function() {
+footballMatches = (function() {
   var gamesInterface = {
     games: [],
 
+    addGame: function(game) {
+      gamesInterface.games.push(game);
+    },
+    deleteGame: function(game) {
+      const gameIndex = gamesInterface.games.indexOf(game);
+      if (gameIndex >= 0) {
+        gamesInterface.games.splice(gameIndex, 1);
+      } else {
+        console.error('There is no such game like ', game);
+      }
+    },
     getScoreByIndex: function(index) {
       return (
         gamesInterface.games[index].homeTeam +
@@ -80,29 +91,36 @@ games = (function() {
       }
       return gamesInterface.games.forEach(forEachGameWorker);
     },
-    addGame: function(game) {
-      gamesInterface.games.push(game);
-    },
-    deleteGame: function(game) {
-      const gameIndex = gamesInterface.games.indexOf(game);
-      if (gameIndex >= 0) {
-        gamesInterface.games.splice(gameIndex, 1);
-      } else {
-        console.error('There is no such game like ', game);
-      }
-    },
     getAllFriendlyGames: function() {
       return gamesInterface.games.filter(function(game) {
         return game.isFriendly === true;
       });
-    }
+    },
+    getGamesByTeam: function(team) {
+      return gamesInterface.games.filter(function(game) {
+        return game.homeTeam === team || game.awayTeam === team;
+      });
+    },
+    scoreGoal: function(gameIndex, isHomeTeam) {
+      if (isHomeTeam) {
+        return ++gamesInterface.games[gameIndex].scoreHome;
+      } else {
+        return ++gamesInterface.games[gameIndex].scoreAway;
+      }
+    },
   };
   return gamesInterface;
 })();
 
-games.addGame(new FootballGame('Man Utd', 'Chelsea', 3, 0, false));
-games.addGame(new FootballGame('Man Utd', 'Liverpool', 1, 0, false));
-games.addGame(new FootballGame('Man Utd', 'Everton', 3, 2, false));
-games.addGame(new FootballGame('Man Utd', 'Arka Gdnia', 3, 3, true));
-console.log(games.getAllScores());
-console.log(games.getAllFriendlyGames());
+footballMatches.addGame(new FootballGame('Man Utd', 'Chelsea', 3, 0, false));
+footballMatches.addGame(new FootballGame('Man Utd', 'Liverpool', 1, 0, false));
+footballMatches.addGame(new FootballGame('Man Utd', 'Everton', 3, 2, false));
+footballMatches.addGame(new FootballGame('Man Utd', 'Arka Gdynia', 3, 3, true));
+footballMatches.getAllScores();
+console.log(footballMatches.getAllFriendlyGames());
+console.log(footballMatches.getGamesByTeam('Man Utd'));
+console.log(footballMatches.getScoreByIndex(3));
+footballMatches.scoreGoal(3, true);
+footballMatches.scoreGoal(3, true);
+footballMatches.scoreGoal(3, false);
+console.log(footballMatches.getScoreByIndex(3));
