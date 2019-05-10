@@ -1,23 +1,13 @@
 .detailsContainer {
-  width: 80%;
-  min-height: 500px;
-  display: block;
-  position: relative;
-  margin: 10px auto;
-  background: rgba(0,0,0,0.5);
-  color: white;
-  font-size: 1.4rem;
-  padding: 15px;
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  background-color: darkgray;
+  padding: 20px 0;
+  border-radius: 10px;
 }
 
-.detailsContainer::after {
-  content: "";
-  background: url('./assets/pitch.jpg');
-  background-size: cover;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
+.detaisContainer__heading {
+  font-weight: bold;
 }
