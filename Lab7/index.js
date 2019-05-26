@@ -1,15 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const FootballGamesDatabase = require('./db/db');
 const FootballGame = require('./db/classes/FootballGame');
 
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-  );
-  app.use(bodyParser.json());
+app.use(cors());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true
+//   })
+//   );
+app.use(bodyParser.json());
   
 const PORT = 4000;
 
