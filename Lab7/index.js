@@ -6,11 +6,11 @@ const FootballGamesDatabase = require('./db/db');
 const FootballGame = require('./db/classes/FootballGame');
 
 app.use(cors());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true
-//   })
-//   );
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+  );
 app.use(bodyParser.json());
   
 const PORT = 4000;

@@ -1,0 +1,23 @@
+.mainContainer {
+  padding: 1% 2.5%;
+  background-color: #efefef;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.filterByTeam {
+  display: flex;
+}
+
+.gamesListItem {
+  padding: 10px 0;
+}
+
+.deleteIcon {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  font-weight: bold;
+}

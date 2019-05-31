@@ -1,11 +1,13 @@
-import React from 'react';
-import Game from './Game';
+import React, { Fragment } from 'react';
+import Games from './components/Games/Games';
+import AppHeading from './components/AppHeading/AppHeading';
 
 function App() {
   return (
-    <div className="App">
-        <Game />
-    </div>
+    <Fragment>
+      <AppHeading />
+      <Games />
+    </Fragment>
   );
 }
 

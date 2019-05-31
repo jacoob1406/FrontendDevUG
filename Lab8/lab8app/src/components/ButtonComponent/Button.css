@@ -1,0 +1,27 @@
+.buttonComponent {
+  background-color: #1a7ffa;
+  border: none;
+  margin: 0;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 2px;
+  margin: 5px;
+}
+
+.buttonComponent:active,
+.buttonComponent:visited,
+.buttonComponent:focus {
+  border: none;
+  outline: none;
+}
+
+.buttonComponent:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.buttonComponent:disabled {
+  background-color: #8d8d8d;
+  cursor: not-allowed;
+  opacity: 1;
+}

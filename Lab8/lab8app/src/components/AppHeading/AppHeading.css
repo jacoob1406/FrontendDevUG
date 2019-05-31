@@ -1,0 +1,13 @@
+.appHeadingContainer {
+  text-align: center;
+  width: 100%;
+  background-color: #fff056;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.appHeading {
+  padding: 10px 0;
+  margin: 0;
+  font-size: 2rem;
+}
