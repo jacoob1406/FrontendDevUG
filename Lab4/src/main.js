@@ -1,36 +1,16 @@
-import FootballGamesDatabase from './db';
-import { FootballGame } from './classes/FootballGame';
-import { DerbyGame } from './classes/DerbyGame';
+import gamesDatabase from './gamesDatabase';
 
-const gamesDatabase = new FootballGamesDatabase();
-
-gamesDatabase.addGame(new FootballGame('Man United', 'Man City', 3, 0, false));
-gamesDatabase.addGame(new FootballGame('Man United', 'Arsenal', 4, 1, false));
-gamesDatabase.addGame(new FootballGame('Man United', 'Chelsea', 0, 0, true));
-gamesDatabase.addGame(new FootballGame('Barcelona', 'Liverpool', 3, 2, false));
-gamesDatabase.addGame(new FootballGame('Tottenham', 'Wolves', 0, 2, false));
-gamesDatabase.addGame(new FootballGame('Cracovia', 'Legia', 5, 2, false));
-gamesDatabase.addGame(new FootballGame('Barcelona', 'Liverpool', 3, 2, true));
-gamesDatabase.addGame(
-  new DerbyGame(
-    'Arka Gdynia',
-    'Lechia Gdansk',
-    3,
-    2,
-    false,
-    123,
-    'Derby Trójmiasta',
-    'ARKA'
-  )
-);
-
-gamesDatabase.getAllUniqueTeams();
 gamesDatabase.getAllScores();
 
-console.log(gamesDatabase.getGameById(123));
+console.log(gamesDatabase.getAllUniqueTeams());
 
-gamesDatabase.deleteGame(123);
-console.log(gamesDatabase.getGameById(123));
+console.log(gamesDatabase.getScoreById('123'));
+console.log(gamesDatabase.getScoreById('656'));
+console.log(gamesDatabase.getGameById('123'));
+gamesDatabase.deleteGame('123');
+console.log(gamesDatabase.getGameById('123'));
+
+console.log(gamesDatabase.getGameById('656').betterFans);
 
 console.log(gamesDatabase.getAllFriendlyGames());
 
@@ -38,4 +18,16 @@ console.log(gamesDatabase.getGamesByTeam('Liverpool'));
 console.log(gamesDatabase.getGamesByTeam('Man United'));
 console.log(gamesDatabase.getGamesByTeam('Chelsea'));
 
-export default gamesDatabase;
+console.log(gamesDatabase.getGameByIndex(1));
+gamesDatabase.deleteGameByIndex(1);
+console.log(gamesDatabase.getGameByIndex(1));
+
+console.log(gamesDatabase.getAllHomeTeams());
+console.log(gamesDatabase.getAllAwayTeams());
+
+console.log(gamesDatabase.getGamesWithManyGoals());
+
+console.log(gamesDatabase.getAllUniqueTeams());
+
+console.log(gamesDatabase.getNumberOfGoals());
+console.log(gamesDatabase.getAverageGoalsInGame());

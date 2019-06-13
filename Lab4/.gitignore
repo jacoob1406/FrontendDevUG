@@ -1,5 +1,3 @@
-# Whitelist dotfiles
-.*
 !deps/**/.*
 !test/fixtures/**/.*
 !tools/node_modules/**/.*
