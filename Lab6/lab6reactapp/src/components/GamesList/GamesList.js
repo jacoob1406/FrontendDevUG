@@ -6,7 +6,7 @@ const GamesList = ({ gamesList }) => {
     <div className="mainContainer">
       <ul className="mainContainer__gamesList">
         {gamesList.map(game => (
-          <li className="mainContainer__gamesList__item" key={game.id}>{`${
+          <li className="mainContainer__gamesList__item" key={game._id}>{`${
             game._homeTeam
           } ${game._scoreHome} : ${game._scoreAway} ${game._awayTeam}`}</li>
         ))}

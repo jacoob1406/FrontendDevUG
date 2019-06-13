@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import GamesList from './components/GamesList/GamesList';
-import GameDetails from './components/GameDetails/GameDetails';
-import db from './db/main';
+import GamesList from '../GamesList/GamesList';
+import GameDetails from '../GameDetails/GameDetails';
+import db from '../../db/gamesDatabase';
 
 function App() {
   return (
