@@ -12,6 +12,10 @@ const GameItemContainer = styled.div`
   &:hover {
     opacity: 0.7;
   }
+
+  span {
+    font-weight: bold;
+  }
 `;
 
 export default GameItemContainer;

@@ -6,6 +6,12 @@ const NavItems = styled.div`
   a {
     padding: 0 20px;
   }
+
+  a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: #000000;
+  }
 `;
 
 export default NavItems;
