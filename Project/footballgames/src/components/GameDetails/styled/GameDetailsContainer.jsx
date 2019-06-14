@@ -13,6 +13,8 @@ const GameDetailsContainer = styled.section`
   }
   input[type='checkbox'] {
     transform: scale(1.4);
+    cursor: pointer;
+    margin-left: 7px;
 
     &:checked {
       color: green;

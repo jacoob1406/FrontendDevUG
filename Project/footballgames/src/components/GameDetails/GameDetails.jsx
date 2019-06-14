@@ -47,7 +47,7 @@ class GameDetails extends Component {
             `${game._scoreHome} : ${game._scoreAway}`
           )}
         </div>
-        <label htmlFor="editMode">Edit score mode: </label>
+        <label htmlFor="editMode">Edit score mode:</label>
         <input
           name="editMode"
           type="checkbox"
