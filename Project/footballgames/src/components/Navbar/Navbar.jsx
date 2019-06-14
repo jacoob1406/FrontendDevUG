@@ -1,60 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { ROUTES } from '../../utils/constants/routes';
-
-const Header = styled.header`
-  background: #42f4b3;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #000000;
-  text-transform: uppercase;
-`;
-
-const AppTitle = styled.div`
-  text-align: left;
-  font-size: 1.15rem;
-  padding-left: 20px;
-  font-weight: bold;
-  transform: skew(-2deg, -2deg);
-`;
-
-const NavItems = styled.div`
-  padding-right: 30px;
-
-  a {
-    padding: 0 20px;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: #000000;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    text-decoration: none;
-  }
-`;
+import AppTitle from './styled/AppTitle';
+import Header from './styled/Header';
+import Link from './styled/Link';
+import NavItems from './styled/NavItems';
 
 const Navbar = () => (
   <Header>
     <AppTitle>
-      <StyledLink to={ROUTES.MAIN_PAGE}>Football games</StyledLink>
+      <Link to={ROUTES.MAIN_PAGE}>Football games</Link>
     </AppTitle>
     <NavItems>
-      <StyledLink to={ROUTES.MAIN_PAGE}>Games</StyledLink>
-      <StyledLink to={ROUTES.ADD_GAME}>Add game</StyledLink>
-      <StyledLink to={ROUTES.ABOUT}>About</StyledLink>
+      <Link to={ROUTES.MAIN_PAGE}>Games</Link>
+      <Link to={ROUTES.ADD_GAME}>Add game</Link>
+      <Link to={ROUTES.ABOUT}>About</Link>
     </NavItems>
   </Header>
 );
