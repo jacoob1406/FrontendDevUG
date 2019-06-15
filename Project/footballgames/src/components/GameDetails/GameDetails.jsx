@@ -6,6 +6,7 @@ import GameDetailsContainer from './styled/GameDetailsContainer';
 import DeleteButton from './styled/DeleteButton';
 import DeletedInfoContainer from './styled/DeletedInfoContainer';
 import Button from '../Button/Button';
+import NotFound from '../NotFound/NotFound';
 
 class GameDetails extends Component {
   state = {
@@ -56,6 +57,8 @@ class GameDetails extends Component {
           Back to all games
         </Button>
       </DeletedInfoContainer>
+    ) : game === 'There is no game with such ID!' ? (
+      <NotFound />
     ) : (
       <GameDetailsContainer>
         <div>
