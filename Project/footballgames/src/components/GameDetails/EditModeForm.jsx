@@ -54,7 +54,7 @@ const EditModeForm = ({ game, handleSubmit }) => (
               value={values.scoreAway}
               onChange={handleChange}
             />
-            <Button width="auto" disabled={!isValid}>
+            <Button type="submit" width="auto" disabled={!isValid}>
               Update score
             </Button>
           </form>
