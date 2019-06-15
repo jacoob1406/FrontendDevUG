@@ -77,7 +77,7 @@ class GameDetails extends Component {
           <input
             name="editMode"
             type="checkbox"
-            value={editMode}
+            checked={editMode}
             onChange={this.toggleEditMode}
           />
         </div>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = styled.header`
+const Header = styled.nav`
   background: #42f4b3;
   width: 100%;
   position: fixed;
