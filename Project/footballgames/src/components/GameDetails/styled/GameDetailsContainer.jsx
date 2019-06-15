@@ -7,6 +7,8 @@ const GameDetailsContainer = styled.section`
   font-size: 1.3rem;
   text-transform: uppercase;
   padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 
   div {
     padding: 10px 0;

@@ -8,6 +8,8 @@ const GameItemContainer = styled.div`
   text-align: center;
   color: #000000;
   width: 80%;
+  position: relative;
+  z-index: 1;
 
   &:hover {
     opacity: 0.7;

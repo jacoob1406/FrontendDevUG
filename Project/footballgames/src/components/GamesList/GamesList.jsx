@@ -50,11 +50,6 @@ class GameList extends Component {
     }
   };
 
-  deleteGame = async id => {
-    await axios.delete(`http://localhost:4000/api/matches/delete/${id}`);
-    this.fetchGames();
-  };
-
   render() {
     return (
       this.state.games &&

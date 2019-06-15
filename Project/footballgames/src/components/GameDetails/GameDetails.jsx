@@ -3,11 +3,15 @@ import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import EditModeForm from './EditModeForm';
 import GameDetailsContainer from './styled/GameDetailsContainer';
+import DeleteButton from './styled/DeleteButton';
+import DeletedInfoContainer from './styled/DeletedInfoContainer';
+import Button from '../Button/Button';
 
 class GameDetails extends Component {
   state = {
     game: {},
-    editMode: false
+    editMode: false,
+    successDeleted: false
   };
 
   componentDidMount() {
@@ -32,9 +36,27 @@ class GameDetails extends Component {
     this.setState({ editMode: false });
   };
 
+  deleteGame = async id => {
+    await axios
+      .delete(`http://localhost:4000/api/matches/delete/${id}`)
+      .then(() => {
+        this.setState({ successDeleted: true });
+      })
+      .catch(error => {
+        console.log(error.response);
+      });
+  };
+
   render() {
-    const { game, editMode } = this.state;
-    return (
+    const { game, editMode, successDeleted } = this.state;
+    return successDeleted ? (
+      <DeletedInfoContainer>
+        <p>Game deleted!</p>
+        <Button width="200px" onClick={() => this.props.history.push('/')}>
+          Back to all games
+        </Button>
+      </DeletedInfoContainer>
+    ) : (
       <GameDetailsContainer>
         <div>
           {game._homeTeam} - {game._awayTeam}
@@ -47,13 +69,19 @@ class GameDetails extends Component {
             `${game._scoreHome} : ${game._scoreAway}`
           )}
         </div>
-        <label htmlFor="editMode">Edit score mode:</label>
-        <input
-          name="editMode"
-          type="checkbox"
-          value={editMode}
-          onChange={this.toggleEditMode}
-        />
+        <div>
+          <label htmlFor="editMode">Edit score mode:</label>
+          <input
+            name="editMode"
+            type="checkbox"
+            value={editMode}
+            onChange={this.toggleEditMode}
+          />
+        </div>
+        <DeleteButton onClick={this.deleteGame.bind(null, game._id)}>
+          Remove game
+          <i className="fa fa-trash" />
+        </DeleteButton>
       </GameDetailsContainer>
     );
   }
